@@ -1,0 +1,23 @@
+version: '3.7'
+services:
+
+  yt-playlist:
+    container_name: yt-playlist
+    env_file:
+      - .env
+    restart: always
+    build:
+      context: .
+    volumes:
+      - ./:/app
+      - yt-playlist-modules:/app/node_modules
+    ports:
+      - 3000:3000
+    networks:
+      - net-yt-playlist
+
+networks:
+  net-yt-playlist:
+
+volumes:
+  yt-playlist-modules:
